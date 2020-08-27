@@ -1,0 +1,13 @@
+#workoutContainer {
+    height: max-content;
+    background-color: goldenrod;
+    padding: 0;
+  }
+  .selectors {
+    background-color: #007bff;
+    padding: 1vw;
+    border-style: solid;
+  }
+  #workoutPlanner{
+      height: 20vh;
+  }

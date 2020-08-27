@@ -1,0 +1,13 @@
+#trainersContainer{
+    height: 100vh;
+    background-color: goldenrod;
+    padding-top: 1vh;
+}
+#trainerProfiles{
+    border-style: solid;
+    height: 50vh;
+    margin-top: 1vh;
+}
+#filterMenu{
+    padding-left: 1vw;
+}

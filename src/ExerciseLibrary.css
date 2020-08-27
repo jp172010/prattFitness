@@ -1,0 +1,14 @@
+#libraryContainer {
+  height: max-content;
+  background-color: goldenrod;
+  padding: 0;
+}
+#videoArea {
+  height: 40vh;
+  background-color: white;
+}
+.selectors {
+  background-color: #007bff;
+  padding: 1vw;
+  border-style: solid;
+}

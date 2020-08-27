@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AuthProvider } from "./Auth";
+import PrivateRoute from "./PrivateRoute";
+import Home from "./Home";
+import Landing from "./Landing";
+import Login from "./Login";
+import FindTrainer from "./FindTrainer"
 import './App.css';
+import TopNav from './Navbar';
+import ExerciseLibrary from "./ExerciseLibrary"
+import Workout from "./Workout"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <div>
+          <TopNav/>
+          <PrivateRoute exact path="/Home" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/ExerciseLibrary" component={ExerciseLibrary} />
+          <Route exact path="/FindTrainer" component={FindTrainer}/>
+          <Route exact path="/Workout" component={Workout}/>
+          <Route exact path="/landing" component={Landing} />
+          <Route exact path="/login" component={Login} />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

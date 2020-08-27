@@ -1,0 +1,37 @@
+#messages {
+  color: goldenrod;
+  height: 54vh;
+  border-style: solid;
+  padding: 2vh;
+  background-color: #007bff;
+  text-align: center;
+  border-color: goldenrod;
+}
+#workout {
+  color: goldenrod;
+  height: 54vh;
+  border-style: solid;
+  padding: 2vh;
+  background-color: #007bff;
+  text-align: center;
+  border-color: goldenrod;
+}
+#calendar {
+  color: goldenrod;
+  height: 28vh;
+  border-style: solid;
+  padding: 2vh;
+  background-color: #007bff;
+  text-align: center;
+  border-color: goldenrod;
+}
+#recentWorkouts{
+    color: goldenrod;
+    height: 54vh;
+    border-style: solid;
+    padding: 2vh;
+    background-color: #007bff;
+    text-align: center;
+    border-color: goldenrod;
+}
+
