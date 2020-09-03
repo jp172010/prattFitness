@@ -1,37 +1,40 @@
 #messages {
-  color: goldenrod;
+  color: #007bff;
   height: 54vh;
   border-style: solid;
   padding: 2vh;
-  background-color: #007bff;
+  background-color: goldenrod;
   text-align: center;
-  border-color: goldenrod;
+  border-color: white;
 }
 #workout {
-  color: goldenrod;
+  color: #007bff;
   height: 54vh;
   border-style: solid;
   padding: 2vh;
-  background-color: #007bff;
+  background-color: goldenrod;
   text-align: center;
-  border-color: goldenrod;
+  border-color: white;
 }
 #calendar {
-  color: goldenrod;
+  color: #007bff;
   height: 28vh;
   border-style: solid;
   padding: 2vh;
-  background-color: #007bff;
+  background-color: goldenrod;
   text-align: center;
-  border-color: goldenrod;
+  border-color: white;
 }
 #recentWorkouts{
-    color: goldenrod;
+    color: #007bff;
     height: 54vh;
     border-style: solid;
     padding: 2vh;
-    background-color: #007bff;
+    background-color: goldenrod;
     text-align: center;
-    border-color: goldenrod;
+    border-color: white;
+}
+#homeContainer{
+  background-color: #0033ff;
 }
 

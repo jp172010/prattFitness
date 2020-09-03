@@ -16,6 +16,7 @@ import SignUp from "./SignUp.js";
 import "./Navbar.css";
 import Account from "./Account.js";
 import "./ExerciseLibrary"
+import "./TrackProgress"
 
 export default function TopNav() {
   const { currentUser } = useContext(AuthContext);
@@ -69,7 +70,7 @@ export default function TopNav() {
   }
 
   return (
-    <Navbar expand="lg" bg="primary" variant="light">
+    <Navbar expand="lg" bg="warning" variant="light">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Container id="navbarContainer" fluid>
@@ -88,7 +89,7 @@ export default function TopNav() {
             </Col>
             <Col xs={12} md={10}>
               <Account/>
-              <Button id="signOutButton"  onClick={() => app.auth().signOut()} variant="warning">
+              <Button id="signOutButton"  onClick={() => app.auth().signOut()}>
                 Sign Out
               </Button>
             </Col>
@@ -105,7 +106,7 @@ export default function TopNav() {
                   <NavDropdown.Item href="./ExerciseLibrary">
                     Exercise Library
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.4">
+                  <NavDropdown.Item href="./TrackProgress">
                     Track Your Progress
                   </NavDropdown.Item>
                 </NavDropdown>

@@ -2,12 +2,10 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "./firebase.js";
 import { AuthContext } from "./Auth.js";
-import "./SignUp";
 import "./Login.css";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import SignUp from "./SignUp.js";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
 

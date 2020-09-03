@@ -13,7 +13,7 @@ const Home = () => {
     return <Redirect to="./Landing" />;
   }
   return (
-    <Container fluid>
+    <Container fluid id="homeContainer">
       <Row className="justify-content-md-center">
         <Col />
         <Col xs={12} md={5} id="messages">
@@ -42,7 +42,7 @@ const Home = () => {
         <Col xs={12} md={5} id="recentWorkouts">
           <div>
             <h1>
-              Recent Workouts
+              Goals
             </h1>
           </div>
         </Col>

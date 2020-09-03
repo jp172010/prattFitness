@@ -1,6 +1,3 @@
-#loginLink{
-    color: gold;
-}
 #navbarRow{
     width: 100vw;
 }
@@ -9,4 +6,5 @@
 }
 #signOutButton{
     margin-top: 1vw;
+    background-color: #8b1d42;
 }

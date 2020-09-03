@@ -10,6 +10,7 @@ import './App.css';
 import TopNav from './Navbar';
 import ExerciseLibrary from "./ExerciseLibrary"
 import Workout from "./Workout"
+import TrackProgress from "./TrackProgress"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <PrivateRoute exact path="/Home" component={Home} />
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/ExerciseLibrary" component={ExerciseLibrary} />
+          <PrivateRoute exact path="/TrackProgress" component={TrackProgress} />
           <Route exact path="/FindTrainer" component={FindTrainer}/>
           <Route exact path="/Workout" component={Workout}/>
           <Route exact path="/landing" component={Landing} />
