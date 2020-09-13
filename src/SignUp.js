@@ -9,17 +9,21 @@ import { Form } from "react-bootstrap";
 
 const SignUp = () => {
   const [showPic, setShowPic] = useState(false);
-  const [show, setShow] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
   const [imagePreview, setImagePreview] = useState("");
   const [image, setImage] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const handleShowPic = () => {
-    setShowPic(true);
-    handleClose();
-  };
+  const handleShowPic = () => setShowPic(true);
   const handleClosePic = () => setShowPic(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => setShowSignUp(true);
+
+  const handleClose = () => {
+    setShowSignUp(false);
+    handleShowPic();
+  };
 
   const handleImageChange = (e) => {
     e.preventDefault();
@@ -31,6 +35,9 @@ const SignUp = () => {
     };
     reader.readAsDataURL(file);
     const user = firebase.auth().currentUser;
+    user.updateProfile({
+      photoUrl: file,
+    });
     const storageRef = firebase
       .storage()
       .ref(user + "/profilePicture/" + file.name)
@@ -45,33 +52,38 @@ const SignUp = () => {
         .updateProfile({
           photoUrl: image,
         })
-
         .then(function () {
-          alert("Your profile picture has been updated!")
+          alert("Your profile picture has been updated!");
+          handleClosePic();
+          handleAccountCreation();
         })
         .catch(function (error) {
           alert(error);
         });
-
-      handleClosePic();
     } catch (error) {
       alert(error);
     }
   };
 
-  const handleSignUp = async (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     const { email, password, name } = event.target.elements;
+    setEmail(email.value);
+    setPassword(password.value);
+    setName(name.value);
+    handleShowPic();
+  };
+
+  const handleAccountCreation = async (event) => {
+    event.preventDefault();
+    console.log(email, password);
     try {
-      await app
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
+      await app.auth().createUserWithEmailAndPassword(email, password);
       const user = firebase.auth().currentUser;
       user
         .updateProfile({
-          displayName: name.value,
+          displayName: name,
         })
-
         .then(function () {
           alert("Your account has been created!");
         })
@@ -89,7 +101,7 @@ const SignUp = () => {
         Create An Account
       </Button>
 
-      <Modal centered show={show} onHide={handleClose}>
+      <Modal centered show={showSignUp} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create An Account</Modal.Title>
         </Modal.Header>
@@ -116,9 +128,7 @@ const SignUp = () => {
               />
             </Form.Label>
             <br />
-            <Button onClick={handleShowPic} type="submit">
-              Sign Up
-            </Button>
+            <Button type="submit">Sign Up</Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -133,7 +143,7 @@ const SignUp = () => {
           <Modal.Title>Add Profile Picture</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleProfilePic}>
+          <Form onSubmit={handleAccountCreation}>
             <Form.Group>
               <Form.File
                 onChange={(e) => handleImageChange(e)}
@@ -141,7 +151,9 @@ const SignUp = () => {
                 label="Profile Picture"
               />
             </Form.Group>
-            <div>{imagePreview}</div>
+            <div>
+              <image>{imagePreview}</image>
+            </div>
             <br />
             <Button type="submit">Add Picture</Button>
           </Form>
